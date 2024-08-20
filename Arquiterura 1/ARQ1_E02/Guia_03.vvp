@@ -1,0 +1,44 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\Users\arthu\OneDrive\READET~1\2024-2~1\2024-2~3\ICARUS~1\lib\ivl\system.vpi";
+:vpi_module "C:\Users\arthu\OneDrive\READET~1\2024-2~1\2024-2~3\ICARUS~1\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\Users\arthu\OneDrive\READET~1\2024-2~1\2024-2~3\ICARUS~1\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\Users\arthu\OneDrive\READET~1\2024-2~1\2024-2~3\ICARUS~1\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\Users\arthu\OneDrive\READET~1\2024-2~1\2024-2~3\ICARUS~1\lib\ivl\va_math.vpi";
+S_000001fec594a000 .scope module, "Guia_0203" "Guia_0203" 2 7;
+ .timescale 0 0;
+v000001fec594a190_0 .var "b", 7 0;
+v000001fec5949d30_0 .var/real "x", 0 0;
+S_000001fec5852510 .scope begin, "main" "main" 2 15, 2 15 0, S_000001fec594a000;
+ .timescale 0 0;
+    .scope S_000001fec594a000;
+T_0 ;
+    %pushi/real 1342177280, 4065; load=0.625000
+    %store/real v000001fec5949d30_0;
+    %pushi/vec4 160, 0, 8;
+    %store/vec4 v000001fec594a190_0, 0, 8;
+    %end;
+    .thread T_0;
+    .scope S_000001fec594a000;
+T_1 ;
+    %fork t_1, S_000001fec5852510;
+    %jmp t_0;
+    .scope S_000001fec5852510;
+t_1 ;
+    %vpi_call 2 16 "$display", "Guia_0203 - Tests" {0 0 0};
+    %vpi_call 2 17 "$display", "x = %f", v000001fec5949d30_0 {0 0 0};
+    %vpi_call 2 18 "$display", "b = 0.%8b", v000001fec594a190_0 {0 0 0};
+    %vpi_call 2 19 "$display", "b = 0.%x%x (16)", &PV<v000001fec594a190_0, 4, 4>, &PV<v000001fec594a190_0, 0, 4> {0 0 0};
+    %vpi_call 2 20 "$display", "b = 0.%o%o%o (8) ", &PV<v000001fec594a190_0, 6, 2>, &PV<v000001fec594a190_0, 3, 3>, &PV<v000001fec594a190_0, 0, 3> {0 0 0};
+    %end;
+    .scope S_000001fec594a000;
+t_0 %join;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Guia_.v";
